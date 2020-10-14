@@ -3,6 +3,14 @@
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --font-primary: "MontSerrat", serif;
+    --font-secundary: "Baloo 2", serif;
+    --font-action: "MontSerrat", serif;
 }
 
 header {
@@ -45,7 +53,7 @@ header {
 
 .banner h1 {
     font-size: 3.5rem;
-    font-family: MontSerrat, serif;
+    font-family: var(--font-primary);
     font-weight: 400;
     text-shadow: .3rem .4rem 2px rgba(0, 0, 0, .7);
     color: #ffffff;
@@ -86,7 +94,7 @@ header {
 
 .banner p {
     font-size: 1.5rem;
-    font-family: MontSerrat, serif;
+    font-family: var(--font-secundary);
     font-weight: 200;
     text-shadow: .1rem .15rem 1px rgba(0, 0, 0, .7);
     color: #ffffff;
@@ -98,7 +106,7 @@ header {
 .banner button {
     animation: showContent 1s 2.1s forwards;
     font-size: 1.2rem;
-    font-family: MontSerrat, serif;
+    font-family: var(--font-action);
     font-weight: 250;
     text-transform: uppercase;
     padding: .7rem;
@@ -107,13 +115,106 @@ header {
     cursor: pointer;
     color: white;
     opacity: 0;
-
     box-shadow: 2px 2px #3a3a3a;
     background: #136a8a;
     background: -webkit-linear-gradient(to right, #267871, #136a8a);
     background: linear-gradient(to right, #267871, #136a8a);
 }
 
-.banner button:hover {
-    opacity: .8;
+.hamburguer {
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.line {
+    width: 100%;
+    height: .15rem;
+    background-color: white;
+    box-shadow: 1px 1px 1px black;
+    transition: all .6s
+}
+
+.sidebar {
+    width: 20rem;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all .5s;
+}
+.show-menu .sidebar{
+    right: 0;
+}
+.show-menu .hamburguer{
+    right: 16rem;
+}
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+.show-menu #line1{
+    background-color: black;
+    transform: rotate(45deg) translate(.3rem, .75rem)  ;
+}
+.show-menu #line3{
+    background-color: black;
+    transform: rotate(-45deg) translate(.3rem, -.75rem) ;
+}
+
+.menu {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item {
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.menu-link {
+    font-family: var(--font-action);
+    font-size: 2rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px black;
+    color: #555;
+    transition: color .8s;
+}
+
+.menu-link:hover {
+    color: #126988;
+}
+
+.social-media {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-media i {
+    width: 3rem;
+    height: 3rem;
+    color: #555;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.social-media i:hover {
+    color: #126988;
 }
